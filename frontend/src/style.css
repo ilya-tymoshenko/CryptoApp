@@ -1,7 +1,12 @@
 :root {
+  /* Libadwaita dark theme colors */
   --accent-bg-color: rgb(26, 95, 180);
   --accent-color: rgb(98, 160, 234);
+  --card-bg-color: rgb(36, 36, 36);
+  --error-bg-color: rgb(192, 28, 40);
+  --error-color: rgb(246, 97, 81);
   --headerbar-bg-color: rgb(36, 36, 36);
+  --headerbar-backdrop-color: rgb(36, 36, 36);
   --headerbar-border-color: rgba(0, 0, 0, 0.36);
   --headerbar-fg-color: rgb(255, 255, 255);
   --headerbar-shade-color: rgba(0, 0, 0, 0.36);
@@ -10,6 +15,7 @@
   --window-bg-color: rgb(36, 36, 36);
   --window-fg-color: rgb(222, 222, 222);
 
+  /* Additional styles */
   --border-radius: 12px;
   --spacing-small: 8px;
   --spacing-medium: 16px;
@@ -156,10 +162,16 @@ button {
   display: none;
 }
 
+.alert-success {
+  background-color: rgba(143, 240, 164, 0.15);
+  border: 1px solid rgb(143, 240, 164, 0.5);
+  color: rgb(143, 240, 164);
+}
+
 .alert-error {
   background-color: rgba(246, 97, 81, 0.15);
   border: 1px solid rgba(246, 97, 81, 0.5);
-  color: rgb(246, 97, 81);
+  color: var(--error-color);
 }
 
 footer {
