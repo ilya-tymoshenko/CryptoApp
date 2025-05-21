@@ -1,22 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>CryptoApp Frontend</title>
-    <link href="/src/style.css" rel="stylesheet"/>
-</head>
-<body>
-<div class="container">
-    <h1>Тестовое приложение Wails</h1>
-    <div class="input-box">
-        <label for="name">Введите ваше имя:</label>
-        <input id="name" type="text" autocomplete="off" />
-        <button id="greetButton">Поприветствовать!</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CryptoApp</title>
+    <link href="/src/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <h1>CryptoApp</h1>
+    </header>
+
+    <div class="container">
+      <div id="alertBox" class="alert"></div>
+
+      <div class="card">
+        <div id="dropArea" class="drop-area">
+          <p>Drop your file here or click to select</p>
+          <input type="file" id="fileInput" />
+        </div>
+
+        <div id="fileInfo" class="file-info">
+          <p>
+            <strong>Selected file:</strong>
+            <span id="fileName">No file selected</span>
+          </p>
+          <p><strong>Size:</strong> <span id="fileSize">-</span></p>
+        </div>
+
+        <div class="form-group">
+          <label for="keyInput">Encryption Key:</label>
+          <input
+            type="password"
+            id="keyInput"
+            placeholder="Enter your encryption key"
+          />
+        </div>
+
+        <div class="buttons">
+          <button id="encryptBtn" class="primary-btn disabled">
+            <div class="spinner"></div>
+            Encrypt
+          </button>
+          <button id="decryptBtn" class="secondary-btn disabled">
+            <div class="spinner"></div>
+            Decrypt
+          </button>
+        </div>
+      </div>
     </div>
-    <div id="greetingResult" class="result">
-    </div>
-</div>
-<script src="/src/main.js" type="module"></script>
-</body>
+
+    <footer>
+      <p>Secure File Encryption & Decryption Tool</p>
+    </footer>
+  </body>
 </html>
