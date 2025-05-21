@@ -1,57 +1,188 @@
+:root {
+  --accent-bg-color: rgb(26, 95, 180);
+  --accent-color: rgb(98, 160, 234);
+  --headerbar-bg-color: rgb(36, 36, 36);
+  --headerbar-border-color: rgba(0, 0, 0, 0.36);
+  --headerbar-fg-color: rgb(255, 255, 255);
+  --headerbar-shade-color: rgba(0, 0, 0, 0.36);
+  --view-bg-color: rgb(48, 48, 48);
+  --view-fg-color: rgb(222, 222, 222);
+  --window-bg-color: rgb(36, 36, 36);
+  --window-fg-color: rgb(222, 222, 222);
+
+  --border-radius: 12px;
+  --spacing-small: 8px;
+  --spacing-medium: 16px;
+  --spacing-large: 24px;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    box-sizing: border-box;
+  font-family: "Cantarell", system-ui, -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  background-color: var(--window-bg-color);
+  color: var(--window-fg-color);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+header {
+  background-color: var(--headerbar-bg-color);
+  color: var(--headerbar-fg-color);
+  padding: var(--spacing-medium);
+  border-bottom: 1px solid var(--headerbar-border-color);
+  box-shadow: 0 1px 2px var(--headerbar-shade-color);
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .container {
-    background-color: white;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+  max-width: 800px;
+  margin: var(--spacing-large) auto;
+  padding: var(--spacing-medium);
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.input-box {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    gap: 10px; /* Расстояние между элементами */
-    align-items: center; /* Выравнивание по центру вертикали */
-    justify-content: center; /* Выравнивание по центру горизонтали */
+.card {
+  background-color: var(--view-bg-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-large);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: var(--spacing-large);
 }
 
-input[type="text"] {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.drop-area {
+  border: 2px dashed #666;
+  border-radius: var(--border-radius);
+  padding: var(--spacing-large);
+  text-align: center;
+  margin-bottom: var(--spacing-medium);
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.drop-area.active {
+  border-color: var(--accent-color);
+  background-color: rgba(98, 160, 234, 0.2);
+}
+
+.file-info {
+  margin-top: var(--spacing-medium);
+  padding: var(--spacing-small);
+  border-radius: var(--border-radius);
+  background-color: rgba(255, 255, 255, 0.1);
+  display: none;
+}
+
+.form-group {
+  margin-bottom: var(--spacing-medium);
+}
+
+label {
+  display: block;
+  margin-bottom: var(--spacing-small);
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #555;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: var(--window-fg-color);
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.buttons {
+  display: flex;
+  gap: var(--spacing-medium);
+  margin-top: var(--spacing-large);
 }
 
 button {
-    padding: 8px 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  flex: 1;
+  transition: background-color 0.2s;
 }
 
-button:hover {
-    background-color: #0056b3;
+.primary-btn {
+  background-color: var(--accent-bg-color);
+  color: white;
 }
 
-.result {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #e9ecef;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    min-height: 30px; /* Чтобы было видно, даже если пусто */
+.primary-btn:hover {
+  background-color: rgb(41, 115, 204);
+}
+
+.secondary-btn {
+  background-color: #3d3d3d;
+  color: var(--view-fg-color);
+}
+
+.secondary-btn:hover {
+  background-color: #4d4d4d;
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.alert {
+  padding: var(--spacing-medium);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-medium);
+  display: none;
+}
+
+.alert-error {
+  background-color: rgba(246, 97, 81, 0.15);
+  border: 1px solid rgba(246, 97, 81, 0.5);
+  color: rgb(246, 97, 81);
+}
+
+footer {
+  margin-top: auto;
+  padding: var(--spacing-medium);
+  text-align: center;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.spinner {
+  display: none;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s linear infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
