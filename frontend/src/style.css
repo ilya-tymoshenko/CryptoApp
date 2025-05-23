@@ -1,5 +1,6 @@
+@import url(./reset.css);
+
 :root {
-  /* Libadwaita dark theme colors */
   --accent-bg-color: rgb(26, 95, 180);
   --accent-color: rgb(98, 160, 234);
   --card-bg-color: rgb(36, 36, 36);
@@ -15,7 +16,6 @@
   --window-bg-color: rgb(36, 36, 36);
   --window-fg-color: rgb(222, 222, 222);
 
-  /* Additional styles */
   --border-radius: 12px;
   --spacing-small: 8px;
   --spacing-medium: 16px;
