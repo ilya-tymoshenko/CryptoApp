@@ -8,7 +8,7 @@
   </head>
   <body>
     <header>
-      <h1>CryptoApp</h1>
+      <h1>File Encryption & Decryption</h1>
     </header>
 
     <div class="container">
@@ -30,11 +30,17 @@
 
         <div class="form-group">
           <label for="keyInput">Encryption Key:</label>
-          <input
-            type="password"
-            id="keyInput"
-            placeholder="Enter your encryption key"
-          />
+          <div class="key-input-group">
+            <input
+              type="text"
+              id="keyInput"
+              placeholder="Enter your encryption key"
+            />
+            <button type="button" id="generateKeyBtn" class="generate-key-btn">
+              Generate Random Key
+            </button>
+          </div>
+          <small>This key will be used to encrypt and decrypt your file.</small>
         </div>
 
         <div class="buttons">
@@ -52,6 +58,12 @@
 
     <footer>
       <p>Secure File Encryption & Decryption Tool</p>
+      <p>
+        <small
+          >Note: This is a client-side tool. Your files and keys never leave
+          your browser.</small
+        >
+      </p>
     </footer>
   </body>
   <script type="module" src="./src/main.js"></script>

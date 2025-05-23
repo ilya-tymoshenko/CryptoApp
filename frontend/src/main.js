@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const keyInput = document.getElementById("keyInput");
   const encryptBtn = document.getElementById("encryptBtn");
   const decryptBtn = document.getElementById("decryptBtn");
+  const generateKeyBtn = document.getElementById("generateKeyBtn");
   const alertBox = document.getElementById("alertBox");
 
   let selectedFile = null;
@@ -95,6 +96,20 @@ document.addEventListener("DOMContentLoaded", function () {
   // Event listeners for buttons
   encryptBtn.addEventListener("click", handleEncrypt);
   decryptBtn.addEventListener("click", handleDecrypt);
+  generateKeyBtn.addEventListener("click", generateRandomKey);
+
+  function generateRandomKey() {
+    const characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+    let result = "";
+    for (let i = 0; i < 32; i++) {
+      result += characters.charAt(
+        Math.floor(Math.random() * characters.length)
+      );
+    }
+    keyInput.value = result;
+    showAlert("Random encryption key generated successfully!", "success");
+  }
 
   function handleEncrypt() {
     if (!selectedFile || !keyInput.value) {
