@@ -2,6 +2,7 @@ package main
 
 import (
 	"embed"
+	"log"
 
 	"github.com/wailsapp/wails/v2"
 	"github.com/wailsapp/wails/v2/pkg/options"
@@ -12,25 +13,24 @@ import (
 var assets embed.FS
 
 func main() {
-	// Create an instance of the app structure
-	app := NewApp() // <<< Используем наш NewApp()
+	app := NewApp()
 
-	// Create application with options
 	err := wails.Run(&options.App{
-		Title:  "CryptoApp", // Можете изменить заголовок
+		Title:  "CryptoApp",
 		Width:  1024,
 		Height: 768,
 		AssetServer: &assetserver.Options{
 			Assets: assets,
 		},
 		BackgroundColour: &options.RGBA{R: 27, G: 38, B: 54, A: 1},
-		OnStartup:        app.startup, // <<< Вызываем метод startup нашего экземпляра app
-		Bind: []interface{}{ // <<< Привязываем ВСЕ публичные методы экземпляра app
+		OnStartup:        app.startup,
+		OnShutdown:       app.shutdown,
+		Bind: []interface{}{
 			app,
 		},
 	})
 
 	if err != nil {
-		println("Error:", err.Error())
+		log.Fatal(err)
 	}
 }
