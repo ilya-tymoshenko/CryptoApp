@@ -1,4 +1,7 @@
-import { setupFileHandlers } from "./modules/fileHandlers.js";
+import {
+  setupFileHandlers,
+  clearSelectedFile,
+} from "./modules/fileHandlers.js";
 import { setupCryptoActions } from "./modules/cryptoActions.js";
 
 const encryptBtn = document.getElementById("encryptBtn");
@@ -19,4 +22,15 @@ function updateButtons() {
 document.addEventListener("DOMContentLoaded", function () {
   setupFileHandlers(updateButtons);
   setupCryptoActions(updateButtons);
+
+  // Add clear key button logic
+  const clearKeyBtn = document.getElementById("clearKeyBtn");
+  const keyInput = document.getElementById("keyInput");
+  if (clearKeyBtn && keyInput) {
+    clearKeyBtn.addEventListener("click", () => {
+      keyInput.value = "";
+      clearSelectedFile();
+      updateButtons();
+    });
+  }
 });

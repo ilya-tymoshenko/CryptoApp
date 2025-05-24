@@ -263,3 +263,7 @@ footer {
   background-color: var(--accent-color);
   color: #222;
 }
+
+#clearBtn {
+  margin-left: var(--spacing-small);
+}
