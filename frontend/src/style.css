@@ -303,3 +303,61 @@ footer {
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 600px) {
+  .container {
+    padding: var(--spacing-small);
+  }
+
+  .card {
+    padding: var(--spacing-medium);
+  }
+
+  .drop-area {
+    padding: var(--spacing-medium);
+    height: 10rem;
+    font-size: 0.95rem;
+  }
+
+  .key-input-group,
+  .key-action-row,
+  .key-action-subrow,
+  .buttons {
+    flex-direction: column;
+    gap: var(--spacing-small);
+  }
+
+  .key-action-row,
+  .buttons {
+    margin-top: var(--spacing-medium);
+  }
+
+  .key-action-row button,
+  .key-action-subrow button,
+  .buttons button {
+    min-width: 0;
+    width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .key-action-subrow {
+    width: 100%;
+  }
+
+  .form-group {
+    margin-bottom: var(--spacing-small);
+  }
+
+  .file-info {
+    font-size: 0.95rem;
+  }
+
+  .expanded-key-input {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .key-warning {
+    font-size: 0.95rem;
+  }
+}
