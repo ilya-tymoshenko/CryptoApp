@@ -13,11 +13,6 @@
 
     <div class="container">
       <div class="card">
-        <div id="dropArea" class="drop-area">
-          <p>Drop your file here or click to select</p>
-          <input type="file" id="fileInput" />
-        </div>
-
         <div id="fileInfo" class="file-info">
           <p>
             <strong>Selected file:</strong>
@@ -34,6 +29,10 @@
               placeholder="Enter your encryption key"
               class="expanded-key-input"
             />
+            <button type="button" id="browseBtn" class="primary-btn">
+              Browse
+            </button>
+            <input type="file" id="fileInput" style="display: none" />
           </div>
           <small class="key-warning">
             <strong>Warning:</strong> Save this key somewhere safe. If you lose

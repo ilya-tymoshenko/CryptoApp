@@ -1,6 +1,6 @@
 import { showAlert } from "./uiHelpers.js";
 
-const dropArea = document.getElementById("dropArea");
+const browseBtn = document.getElementById("browseBtn");
 const fileInput = document.getElementById("fileInput");
 const fileInfo = document.getElementById("fileInfo");
 const fileName = document.getElementById("fileName");
@@ -8,33 +8,11 @@ const fileName = document.getElementById("fileName");
 export let selectedFilePath = null;
 
 export function setupFileHandlers(updateButtons) {
-  ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
-    dropArea.addEventListener(eventName, preventDefaults, false);
-  });
-
-  ["dragenter", "dragover"].forEach((eventName) => {
-    dropArea.addEventListener(eventName, highlight, false);
-  });
-
-  ["dragleave", "drop"].forEach((eventName) => {
-    dropArea.addEventListener(eventName, unhighlight, false);
-  });
-
-  dropArea.addEventListener("drop", handleDrop, false);
-  dropArea.addEventListener("click", handleSelectSourceFile);
-  fileInput.addEventListener("change", handleFileSelect);
-
-  function preventDefaults(e) {
-    e.preventDefault();
-    e.stopPropagation();
+  if (browseBtn) {
+    browseBtn.addEventListener("click", handleSelectSourceFile);
   }
-
-  function highlight() {
-    dropArea.classList.add("active");
-  }
-
-  function unhighlight() {
-    dropArea.classList.remove("active");
+  if (fileInput) {
+    fileInput.addEventListener("change", handleFileSelect);
   }
 
   async function handleSelectSourceFile() {
@@ -50,27 +28,18 @@ export function setupFileHandlers(updateButtons) {
           updateButtons();
         }
       } else {
-        showAlert("Backend function SelectSourceFile not available.", "error");
+        // Fallback: trigger file input for browser environments
+        fileInput.click();
       }
     } catch (err) {
       showAlert("Error selecting file: " + err, "error");
     }
   }
 
-  function handleDrop(e) {
-    const dt = e.dataTransfer;
-    const files = dt.files;
-    if (files.length > 0) {
-      selectedFilePath = files[0].path;
-      displayFileInfo(files[0]);
-      updateButtons();
-    }
-  }
-
   function handleFileSelect(e) {
     const files = e.target.files;
     if (files.length > 0) {
-      selectedFilePath = files[0].path;
+      selectedFilePath = files[0].path || files[0].name;
       displayFileInfo(files[0]);
       updateButtons();
     }

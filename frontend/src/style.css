@@ -67,25 +67,14 @@ h1 {
   margin-bottom: var(--spacing-large);
 }
 
-/* Drop Area */
-.drop-area {
-  border: 2px dashed #666;
-  border-radius: var(--border-radius);
-  padding: var(--spacing-large);
-  text-align: center;
-  margin-bottom: var(--spacing-medium);
-  cursor: pointer;
-  transition: background-color 0.2s, border-color 0.2s;
-  height: 16rem;
+/* Browse Area */
+.browse-area {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
-}
-
-.drop-area.active {
-  border-color: var(--accent-color);
-  background-color: rgba(98, 160, 234, 0.2);
+  margin-bottom: var(--spacing-medium);
+  gap: var(--spacing-small);
 }
 
 /* File Info */
@@ -93,7 +82,7 @@ h1 {
   margin-top: var(--spacing-medium);
   margin-bottom: var(--spacing-medium);
   padding: var(--spacing-small);
-  border-radius: var(--border-radius);
+  border-radius: 6px;
   background-color: rgba(255, 255, 255, 0.1);
   display: none;
 }
@@ -149,6 +138,14 @@ input[type="file"] {
   background-color: rgba(0, 0, 0, 0.2);
   color: var(--window-fg-color);
   box-sizing: border-box;
+  flex: 1 1 auto;
+}
+
+#browseBtn {
+  flex-shrink: 0;
+  white-space: nowrap;
+  min-width: 100px;
+  margin-left: 0;
 }
 
 .key-action-row {
