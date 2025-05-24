@@ -8,6 +8,11 @@ const fileName = document.getElementById("fileName");
 export let selectedFilePath = null;
 
 export function setupFileHandlers(updateButtons) {
+  if (selectedFilePath) {
+    fileInfo.style.display = "block";
+    fileName.textContent = selectedFilePath.split(/[\\/]/).pop();
+  }
+
   ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
     dropArea.addEventListener(eventName, preventDefaults, false);
   });
@@ -21,7 +26,11 @@ export function setupFileHandlers(updateButtons) {
   });
 
   dropArea.addEventListener("drop", handleDrop, false);
-  dropArea.addEventListener("click", handleSelectSourceFile);
+
+  dropArea.addEventListener("click", () => {
+    fileInput.click();
+  });
+
   fileInput.addEventListener("change", handleFileSelect);
 
   function preventDefaults(e) {
@@ -37,47 +46,30 @@ export function setupFileHandlers(updateButtons) {
     dropArea.classList.remove("active");
   }
 
-  async function handleSelectSourceFile() {
-    try {
-      if (window.go?.main?.App?.SelectSourceFile) {
-        const filePath = await window.go.main.App.SelectSourceFile(
-          "Select File to Encrypt/Decrypt"
-        );
-        if (filePath) {
-          selectedFilePath = filePath;
-          const fileNameOnly = filePath.split(/[\\/]/).pop();
-          displayFileInfo({ name: fileNameOnly });
-          updateButtons();
-        }
-      } else {
-        showAlert("Backend function SelectSourceFile not available.", "error");
-      }
-    } catch (err) {
-      showAlert("Error selecting file: " + err, "error");
-    }
-  }
-
   function handleDrop(e) {
     const dt = e.dataTransfer;
     const files = dt.files;
-    if (files.length > 0) {
-      selectedFilePath = files[0].path;
-      displayFileInfo(files[0]);
+    if (files && files.length > 0) {
+      const file = files[0];
+      selectedFilePath = file.path || file.name;
+      displayFileInfo(file);
       updateButtons();
     }
   }
 
   function handleFileSelect(e) {
     const files = e.target.files;
-    if (files.length > 0) {
-      selectedFilePath = files[0].path;
-      displayFileInfo(files[0]);
+    if (files && files.length > 0) {
+      const file = files[0];
+      selectedFilePath = file.path || file.name;
+      displayFileInfo(file);
       updateButtons();
     }
   }
 
   function displayFileInfo(file) {
-    fileName.textContent = file.name;
+    fileName.textContent =
+      file.name || (file.path ? file.path.split(/[\\/]/).pop() : "Unknown");
     fileInfo.style.display = "block";
   }
 }

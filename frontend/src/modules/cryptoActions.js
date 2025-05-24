@@ -8,7 +8,6 @@ const generateKeyBtn = document.getElementById("generateKeyBtn");
 const copyKeyBtn = document.getElementById("copyKeyBtn");
 
 function isValidHexKey(key) {
-  // Example: 32 bytes (64 hex chars) for AES-256
   return /^[0-9a-fA-F]{64}$/.test(key);
 }
 
