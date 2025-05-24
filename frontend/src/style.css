@@ -163,7 +163,6 @@ input[type="file"] {
   flex-direction: row;
   gap: var(--spacing-medium);
   min-width: 49%;
-  width: 100%;
 }
 
 .key-action-subrow button {
