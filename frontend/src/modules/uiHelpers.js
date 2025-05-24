@@ -1,4 +1,4 @@
-import { alertBox } from "./dom.js";
+const alertBox = document.getElementById("alertBox");
 
 export function showAlert(message, type) {
   alertBox.textContent = message;

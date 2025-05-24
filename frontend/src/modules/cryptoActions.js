@@ -1,6 +1,10 @@
-import { keyInput, encryptBtn, decryptBtn, generateKeyBtn } from "./dom.js";
 import { selectedFilePath } from "./fileHandlers.js";
 import { showAlert, simulateProcessing, resetProcessing } from "./uiHelpers.js";
+
+const keyInput = document.getElementById("keyInput");
+const encryptBtn = document.getElementById("encryptBtn");
+const decryptBtn = document.getElementById("decryptBtn");
+const generateKeyBtn = document.getElementById("generateKeyBtn");
 
 export function setupCryptoActions(updateButtons) {
   encryptBtn.addEventListener("click", handleEncrypt);

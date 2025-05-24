@@ -1,6 +1,8 @@
 import { setupFileHandlers } from "./modules/fileHandlers.js";
 import { setupCryptoActions } from "./modules/cryptoActions.js";
-import { encryptBtn, decryptBtn } from "./modules/dom.js";
+
+const encryptBtn = document.getElementById("encryptBtn");
+const decryptBtn = document.getElementById("decryptBtn");
 
 function updateButtons() {
   import("./modules/fileHandlers.js").then(({ selectedFilePath }) => {
@@ -13,7 +15,7 @@ function updateButtons() {
     }
   });
 }
- 
+
 document.addEventListener("DOMContentLoaded", function () {
   setupFileHandlers(updateButtons);
   setupCryptoActions(updateButtons);
