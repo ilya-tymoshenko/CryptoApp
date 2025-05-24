@@ -40,7 +40,9 @@ export function setupFileHandlers(updateButtons) {
   async function handleSelectSourceFile() {
     try {
       if (window.go?.main?.App?.SelectSourceFile) {
-        const filePath = await window.go.main.App.SelectSourceFile("Select File to Encrypt/Decrypt");
+        const filePath = await window.go.main.App.SelectSourceFile(
+          "Select File to Encrypt/Decrypt"
+        );
         if (filePath) {
           selectedFilePath = filePath;
           const fileNameOnly = filePath.split(/[\\/]/).pop();

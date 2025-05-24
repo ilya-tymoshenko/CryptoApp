@@ -23,7 +23,10 @@ export function setupCryptoActions(updateButtons) {
         keyInput.value = hexKey;
         showAlert("Encryption key generated successfully!", "success");
       } else {
-        showAlert("Backend function GenerateEncryptionKey not available.", "error");
+        showAlert(
+          "Backend function GenerateEncryptionKey not available.",
+          "error"
+        );
       }
     } catch (err) {
       showAlert("Error generating key: " + err, "error");
@@ -36,7 +39,10 @@ export function setupCryptoActions(updateButtons) {
       return;
     }
     if (!isValidHexKey(keyInput.value)) {
-      showAlert("Invalid key format. Please enter a 64-character hexadecimal key (0-9, a-f).", "error");
+      showAlert(
+        "Invalid key format. Please enter a 64-character hexadecimal key (0-9, a-f).",
+        "error"
+      );
       return;
     }
     try {
@@ -51,8 +57,15 @@ export function setupCryptoActions(updateButtons) {
           showAlert("Encryption cancelled: No output file selected", "error");
           return;
         }
-        await window.go.main.App.EncryptFile(selectedFilePath, outputPath, keyInput.value);
-        showAlert("File encrypted successfully! Saved to: " + outputPath, "success");
+        await window.go.main.App.EncryptFile(
+          selectedFilePath,
+          outputPath,
+          keyInput.value
+        );
+        showAlert(
+          "File encrypted successfully! Saved to: " + outputPath,
+          "success"
+        );
         resetProcessing(encryptBtn, "Encrypt");
       } else {
         showAlert("Backend function EncryptFile not available.", "error");
@@ -69,7 +82,10 @@ export function setupCryptoActions(updateButtons) {
       return;
     }
     if (!isValidHexKey(keyInput.value)) {
-      showAlert("Invalid key format. Please enter a 64-character hexadecimal key (0-9, a-f).", "error");
+      showAlert(
+        "Invalid key format. Please enter a 64-character hexadecimal key (0-9, a-f).",
+        "error"
+      );
       return;
     }
     try {
@@ -84,8 +100,15 @@ export function setupCryptoActions(updateButtons) {
           showAlert("Decryption cancelled: No output file selected", "error");
           return;
         }
-        await window.go.main.App.DecryptFile(selectedFilePath, outputPath, keyInput.value);
-        showAlert("File decrypted successfully! Saved to: " + outputPath, "success");
+        await window.go.main.App.DecryptFile(
+          selectedFilePath,
+          outputPath,
+          keyInput.value
+        );
+        showAlert(
+          "File decrypted successfully! Saved to: " + outputPath,
+          "success"
+        );
         resetProcessing(decryptBtn, "Decrypt");
       } else {
         showAlert("Backend function DecryptFile not available.", "error");
