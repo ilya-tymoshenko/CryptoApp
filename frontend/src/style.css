@@ -114,12 +114,19 @@ input[type="password"] {
 
 .key-input-group {
   display: flex;
+  flex-direction: column;
   gap: var(--spacing-small);
-  align-items: flex-start;
 }
 
-.key-input-group input {
-  flex: 1;
+.expanded-key-input {
+  width: 100%;
+  font-size: 1.1rem;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: var(--window-fg-color);
+  box-sizing: border-box;
 }
 
 .generate-key-btn {
@@ -137,6 +144,11 @@ input[type="password"] {
 
 .generate-key-btn:hover {
   background-color: rgba(98, 160, 234, 0.3);
+}
+
+.generate-key-btn.below-input {
+  margin-top: var(--spacing-small);
+  width: 100%;
 }
 
 input[type="file"] {
