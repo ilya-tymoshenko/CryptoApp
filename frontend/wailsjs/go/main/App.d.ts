@@ -5,7 +5,7 @@ export function DecryptFile(arg1:string,arg2:string,arg3:string):Promise<string>
 
 export function EncryptFile(arg1:string,arg2:string,arg3:string):Promise<string>;
 
-export function GenerateEncryptionKey(arg1:number):Promise<string>;
+export function GenerateEncryptionKey():Promise<string>;
 
 export function SelectSaveFile(arg1:string,arg2:string):Promise<string>;
 

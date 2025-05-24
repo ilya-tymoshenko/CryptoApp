@@ -10,8 +10,8 @@ export function EncryptFile(arg1, arg2, arg3) {
   return window['go']['main']['App']['EncryptFile'](arg1, arg2, arg3);
 }
 
-export function GenerateEncryptionKey(arg1) {
-  return window['go']['main']['App']['GenerateEncryptionKey'](arg1);
+export function GenerateEncryptionKey() {
+  return window['go']['main']['App']['GenerateEncryptionKey']();
 }
 
 export function SelectSaveFile(arg1, arg2) {
