@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
   setupFileHandlers(updateButtons);
   setupCryptoActions(updateButtons);
 
-  // Add clear key button logic
   const clearBtn = document.getElementById("clearBtn");
   const keyInput = document.getElementById("keyInput");
   if (clearBtn && keyInput) {

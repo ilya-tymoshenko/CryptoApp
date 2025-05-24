@@ -22,6 +22,7 @@
   --spacing-large: 24px;
 }
 
+/* Layout & Typography */
 body {
   font-family: "Cantarell", system-ui, -apple-system, BlinkMacSystemFont,
     sans-serif;
@@ -66,6 +67,7 @@ h1 {
   margin-bottom: var(--spacing-large);
 }
 
+/* Drop Area */
 .drop-area {
   border: 2px dashed #666;
   border-radius: var(--border-radius);
@@ -86,6 +88,7 @@ h1 {
   background-color: rgba(98, 160, 234, 0.2);
 }
 
+/* File Info */
 .file-info {
   margin-top: var(--spacing-medium);
   margin-bottom: var(--spacing-medium);
@@ -95,6 +98,7 @@ h1 {
   display: none;
 }
 
+/* Form Elements */
 .form-group {
   margin-bottom: var(--spacing-medium);
 }
@@ -117,6 +121,11 @@ input[type="password"] {
   color: var(--window-fg-color);
 }
 
+input[type="file"] {
+  display: none;
+}
+
+/* Key Input & Actions */
 .key-warning {
   color: var(--error-color, #e74c3c);
   display: block;
@@ -154,6 +163,7 @@ input[type="password"] {
   flex-direction: row;
   gap: var(--spacing-medium);
   min-width: 49%;
+  width: 100%;
 }
 
 .key-action-subrow button {
@@ -172,6 +182,7 @@ input[type="password"] {
   border: 1px solid #555;
 }
 
+/* Key Buttons */
 .generate-key-btn,
 .copy-key-btn {
   padding: 10px 12px;
@@ -216,10 +227,7 @@ input[type="password"] {
   border-color: var(--error-color, #e74c3c);
 }
 
-input[type="file"] {
-  display: none;
-}
-
+/* Buttons */
 .buttons {
   display: flex;
   gap: var(--spacing-medium);
@@ -260,6 +268,7 @@ button {
   cursor: not-allowed;
 }
 
+/* Alerts */
 .alert {
   padding: var(--spacing-medium);
   border-radius: var(--border-radius);
@@ -279,6 +288,7 @@ button {
   color: var(--error-color);
 }
 
+/* Footer */
 footer {
   margin-top: auto;
   padding: var(--spacing-medium);
@@ -287,6 +297,7 @@ footer {
   font-size: 0.9rem;
 }
 
+/* Spinner */
 .spinner {
   display: none;
   width: 20px;
@@ -304,6 +315,7 @@ footer {
   }
 }
 
+/* Responsive */
 @media (max-width: 600px) {
   .container {
     padding: var(--spacing-small);

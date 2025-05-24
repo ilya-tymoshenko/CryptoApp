@@ -82,7 +82,6 @@ export function setupFileHandlers(updateButtons) {
   }
 }
 
-// Add this function to clear file selection from both state and UI
 export function clearSelectedFile() {
   selectedFilePath = null;
   if (fileName) fileName.textContent = "No file selected";
