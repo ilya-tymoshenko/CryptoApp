@@ -144,16 +144,24 @@ input[type="password"] {
 
 .key-action-row {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   flex-direction: row;
-  gap: var(--spacing-small);
+  gap: var(--spacing-medium);
   margin-top: var(--spacing-small);
+}
+
+.key-action-subrow {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-medium);
+  min-width: 49%;
+}
+
+.key-action-subrow button {
+  min-width: 0;
 }
 
 .key-action-row button {
   min-width: 140px;
-  flex: 1 1 0;
   padding: 10px 16px;
   margin: 0;
   border-radius: 6px;
