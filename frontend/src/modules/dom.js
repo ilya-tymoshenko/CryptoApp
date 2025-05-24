@@ -2,7 +2,6 @@ export const dropArea = document.getElementById("dropArea");
 export const fileInput = document.getElementById("fileInput");
 export const fileInfo = document.getElementById("fileInfo");
 export const fileName = document.getElementById("fileName");
-export const fileSize = document.getElementById("fileSize");
 export const keyInput = document.getElementById("keyInput");
 export const encryptBtn = document.getElementById("encryptBtn");
 export const decryptBtn = document.getElementById("decryptBtn");

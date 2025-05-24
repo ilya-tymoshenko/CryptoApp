@@ -1,5 +1,5 @@
-import { dropArea, fileInput, fileInfo, fileName, fileSize } from "./dom.js";
-import { formatFileSize, showAlert } from "./uiHelpers.js";
+import { dropArea, fileInput, fileInfo, fileName } from "./dom.js"; // removed fileSize
+import { showAlert } from "./uiHelpers.js"; // removed formatFileSize
 
 export let selectedFilePath = null;
 
@@ -72,7 +72,7 @@ export function setupFileHandlers(updateButtons) {
 
   function displayFileInfo(file) {
     fileName.textContent = file.name;
-    fileSize.textContent = file.size ? formatFileSize(file.size) : "N/A";
     fileInfo.style.display = "block";
+    // Removed fileSize update
   }
 }

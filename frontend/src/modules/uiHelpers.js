@@ -1,13 +1,5 @@
 import { alertBox } from "./dom.js";
 
-export function formatFileSize(bytes) {
-  if (!bytes || bytes === 0) return "N/A";
-  const k = 1024;
-  const sizes = ["Bytes", "KB", "MB", "GB"];
-  const i = Math.floor(Math.log(bytes) / Math.log(k));
-  return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i];
-}
-
 export function showAlert(message, type) {
   alertBox.textContent = message;
   alertBox.className = "alert alert-" + type;
