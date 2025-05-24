@@ -47,13 +47,11 @@ export function setupFileHandlers(updateButtons) {
 
   function displayFileInfo(file) {
     fileName.textContent = file.name;
-    fileInfo.style.display = "block";
   }
 }
 
 export function clearSelectedFile() {
   selectedFilePath = null;
   if (fileName) fileName.textContent = "No file selected";
-  if (fileInfo) fileInfo.style.display = "none";
   if (fileInput) fileInput.value = "";
 }

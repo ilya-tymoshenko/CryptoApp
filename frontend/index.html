@@ -8,16 +8,26 @@
   </head>
   <body>
     <header>
-      <h1>File Encryption & Decryption</h1>
+      <h1>CryptoApp</h1>
     </header>
 
     <div class="container">
       <div class="card">
-        <div id="fileInfo" class="file-info">
-          <p>
-            <strong>Selected file:</strong>
-            <span id="fileName">No file selected</span>
-          </p>
+        <label for="fileInput" style="margin-bottom: 0.5em; display: block"
+          >Selected file:</label
+        >
+        <div class="file-row">
+          <div id="fileInfo" class="file-info">
+            <p>
+              <span id="fileName">No file selected</span>
+            </p>
+          </div>
+          <div class="file-browse">
+            <button type="button" id="browseBtn" class="primary-btn">
+              Browse
+            </button>
+            <input type="file" id="fileInput" style="display: none" />
+          </div>
         </div>
 
         <div class="form-group">
@@ -29,10 +39,6 @@
               placeholder="Enter your encryption key"
               class="expanded-key-input"
             />
-            <button type="button" id="browseBtn" class="primary-btn">
-              Browse
-            </button>
-            <input type="file" id="fileInput" style="display: none" />
           </div>
           <small class="key-warning">
             <strong>Warning:</strong> Save this key somewhere safe. If you lose
@@ -79,12 +85,6 @@
 
     <footer>
       <p>Secure File Encryption & Decryption Tool</p>
-      <p>
-        <small
-          >Note: This is a client-side tool. Your files and keys never leave
-          your browser.</small
-        >
-      </p>
     </footer>
   </body>
   <script type="module" src="./src/main.js"></script>

@@ -67,24 +67,50 @@ h1 {
   margin-bottom: var(--spacing-large);
 }
 
-/* Browse Area */
-.browse-area {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: var(--spacing-medium);
-  gap: var(--spacing-small);
-}
-
-/* File Info */
+/* File Row */
 .file-info {
-  margin-top: var(--spacing-medium);
-  margin-bottom: var(--spacing-medium);
   padding: var(--spacing-small);
   border-radius: 6px;
+  padding: 10px 16px;
   background-color: rgba(255, 255, 255, 0.1);
-  display: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.file-info p {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-small);
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.file-row {
+  display: grid;
+  grid-template-columns: 1.6fr 0.5fr;
+  gap: var(--spacing-medium);
+  margin-bottom: var(--spacing-medium);
+  width: 100%;
+  align-items: stretch;
+}
+
+.file-browse {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: var(--spacing-medium);
+}
+
+#browseBtn {
+  min-width: 100px;
+
+  border-radius: 6px;
+  border: 1px solid #555;
+  background-color: rgba(98, 160, 234, 0.2);
+  color: var(--accent-color);
+  transition: background-color 0.2s, color 0.2s;
 }
 
 /* Form Elements */
@@ -141,16 +167,9 @@ input[type="file"] {
   flex: 1 1 auto;
 }
 
-#browseBtn {
-  flex-shrink: 0;
-  white-space: nowrap;
-  min-width: 100px;
-  margin-left: 0;
-}
-
 .key-action-row {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: var(--spacing-medium);
   margin-top: var(--spacing-small);
 }
@@ -312,7 +331,7 @@ footer {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
+@media (max-width: 720px) {
   .container {
     padding: var(--spacing-small);
   }
@@ -367,5 +386,34 @@ footer {
 
   .key-warning {
     font-size: 0.95rem;
+  }
+
+  .file-row {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-small);
+  }
+
+  .file-browse {
+    width: 100%;
+    margin-top: 0;
+    justify-content: stretch;
+  }
+
+  #browseBtn {
+    width: 100%;
+    min-width: 0;
+    margin-left: 0;
+    box-sizing: border-box;
+    max-width: none;
+  }
+
+  .generate-key-btn {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: wrap !important;
+    display: block;
   }
 }
