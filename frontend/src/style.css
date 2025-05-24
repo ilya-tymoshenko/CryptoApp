@@ -74,6 +74,11 @@ h1 {
   margin-bottom: var(--spacing-medium);
   cursor: pointer;
   transition: background-color 0.2s, border-color 0.2s;
+  height: 16rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .drop-area.active {
@@ -147,7 +152,7 @@ input[type="password"] {
 }
 
 .key-action-row button {
-  /* min-width: 140px; */
+  min-width: 140px;
   flex: 1 1 0;
   padding: 10px 16px;
   margin: 0;
@@ -175,8 +180,9 @@ input[type="password"] {
 
 .generate-key-btn:hover,
 .copy-key-btn:hover {
-  background-color: rgba(98, 160, 234, 0.3);
-  color: #222;
+  background-color: var(--accent-bg-color);
+  color: #fff;
+  border-color: var(--accent-bg-color);
 }
 
 .generate-key-btn.below-input {
@@ -197,7 +203,7 @@ input[type="password"] {
 }
 
 .clear-btn:hover {
-  background-color: rgba(246, 97, 81, 0.22);
+  background-color: var(--error-color, #e74c3c);
   color: #fff;
   border-color: var(--error-color, #e74c3c);
 }
