@@ -6,6 +6,11 @@ const encryptBtn = document.getElementById("encryptBtn");
 const decryptBtn = document.getElementById("decryptBtn");
 const generateKeyBtn = document.getElementById("generateKeyBtn");
 
+function isValidHexKey(key) {
+  // Example: 32 bytes (64 hex chars) for AES-256
+  return /^[0-9a-fA-F]{64}$/.test(key);
+}
+
 export function setupCryptoActions(updateButtons) {
   encryptBtn.addEventListener("click", handleEncrypt);
   decryptBtn.addEventListener("click", handleDecrypt);
@@ -28,6 +33,10 @@ export function setupCryptoActions(updateButtons) {
   async function handleEncrypt() {
     if (!selectedFilePath || !keyInput.value) {
       showAlert("Please select a file and enter an encryption key", "error");
+      return;
+    }
+    if (!isValidHexKey(keyInput.value)) {
+      showAlert("Invalid key format. Please enter a 64-character hexadecimal key (0-9, a-f).", "error");
       return;
     }
     try {
@@ -57,6 +66,10 @@ export function setupCryptoActions(updateButtons) {
   async function handleDecrypt() {
     if (!selectedFilePath || !keyInput.value) {
       showAlert("Please select a file and enter the decryption key", "error");
+      return;
+    }
+    if (!isValidHexKey(keyInput.value)) {
+      showAlert("Invalid key format. Please enter a 64-character hexadecimal key (0-9, a-f).", "error");
       return;
     }
     try {
