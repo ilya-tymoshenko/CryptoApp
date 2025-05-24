@@ -24,10 +24,10 @@ document.addEventListener("DOMContentLoaded", function () {
   setupCryptoActions(updateButtons);
 
   // Add clear key button logic
-  const clearKeyBtn = document.getElementById("clearKeyBtn");
+  const clearBtn = document.getElementById("clearBtn");
   const keyInput = document.getElementById("keyInput");
-  if (clearKeyBtn && keyInput) {
-    clearKeyBtn.addEventListener("click", () => {
+  if (clearBtn && keyInput) {
+    clearBtn.addEventListener("click", () => {
       keyInput.value = "";
       clearSelectedFile();
       updateButtons();

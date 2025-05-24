@@ -34,6 +34,11 @@
               placeholder="Enter your encryption key"
               class="expanded-key-input"
             />
+          </div>
+          <div class="key-action-row">
+            <button type="button" id="generateKeyBtn" class="generate-key-btn">
+              Generate Random Key
+            </button>
             <button
               type="button"
               id="copyKeyBtn"
@@ -44,20 +49,13 @@
             </button>
             <button
               type="button"
-              id="clearKeyBtn"
-              class="generate-key-btn"
-              title="Clear key field"
+              id="clearBtn"
+              class="clear-btn"
+              title="Clear field"
             >
               Clear
             </button>
           </div>
-          <button
-            type="button"
-            id="generateKeyBtn"
-            class="generate-key-btn below-input"
-          >
-            Generate Random Key
-          </button>
           <small class="key-warning">
             <strong>Warning:</strong> Save this key somewhere safe. If you lose
             it, you will not be able to decrypt your files.
