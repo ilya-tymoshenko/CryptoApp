@@ -5,6 +5,7 @@ const keyInput = document.getElementById("keyInput");
 const encryptBtn = document.getElementById("encryptBtn");
 const decryptBtn = document.getElementById("decryptBtn");
 const generateKeyBtn = document.getElementById("generateKeyBtn");
+const copyKeyBtn = document.getElementById("copyKeyBtn");
 
 function isValidHexKey(key) {
   // Example: 32 bytes (64 hex chars) for AES-256
@@ -15,13 +16,18 @@ export function setupCryptoActions(updateButtons) {
   encryptBtn.addEventListener("click", handleEncrypt);
   decryptBtn.addEventListener("click", handleDecrypt);
   generateKeyBtn.addEventListener("click", generateRandomKey);
+  copyKeyBtn.addEventListener("click", handleCopyKey);
 
   async function generateRandomKey() {
     try {
       if (window.go?.main?.App?.GenerateEncryptionKey) {
         const hexKey = await window.go.main.App.GenerateEncryptionKey();
         keyInput.value = hexKey;
-        showAlert("Encryption key generated successfully!", "success");
+        await navigator.clipboard.writeText(hexKey);
+        showAlert(
+          "Encryption key generated and copied to clipboard!",
+          "success"
+        );
       } else {
         showAlert(
           "Backend function GenerateEncryptionKey not available.",
@@ -30,6 +36,19 @@ export function setupCryptoActions(updateButtons) {
       }
     } catch (err) {
       showAlert("Error generating key: " + err, "error");
+    }
+  }
+
+  async function handleCopyKey() {
+    if (!keyInput.value) {
+      showAlert("No key to copy!", "error");
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(keyInput.value);
+      showAlert("Key copied to clipboard!", "success");
+    } catch (err) {
+      showAlert("Failed to copy key: " + err, "error");
     }
   }
 

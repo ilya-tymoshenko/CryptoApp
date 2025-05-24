@@ -112,10 +112,18 @@ input[type="password"] {
   color: var(--window-fg-color);
 }
 
+.key-warning {
+  color: var(--error-color, #e74c3c);
+  display: block;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
 .key-input-group {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: var(--spacing-small);
+  align-items: center;
 }
 
 .expanded-key-input {
@@ -237,4 +245,21 @@ footer {
   to {
     transform: rotate(360deg);
   }
+}
+
+.copy-key-btn {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background-color: var(--accent-bg-color);
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.copy-key-btn:hover {
+  background-color: var(--accent-color);
+  color: #222;
 }

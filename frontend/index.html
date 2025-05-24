@@ -34,6 +34,14 @@
               placeholder="Enter your encryption key"
               class="expanded-key-input"
             />
+            <button
+              type="button"
+              id="copyKeyBtn"
+              class="copy-key-btn"
+              title="Copy key to clipboard"
+            >
+              Copy
+            </button>
           </div>
           <button
             type="button"
@@ -42,7 +50,10 @@
           >
             Generate Random Key
           </button>
-          <small>This key will be used to encrypt and decrypt your file.</small>
+          <small class="key-warning">
+            <strong>Warning:</strong> Save this key somewhere safe. If you lose
+            it, you will not be able to decrypt your files.
+          </small>
         </div>
 
         <div class="buttons">
