@@ -40,9 +40,15 @@ export function showAlert(message, type) {
   alertBox.textContent = message;
   alertBox.className = "alert alert-" + type;
   alertBox.style.display = "block";
-  setTimeout(() => {
-    alertBox.style.display = "none";
-  }, 5000);
+  if (type === "error") {
+    setTimeout(() => {
+      alertBox.style.display = "none";
+    }, 12000);
+  } else {
+    setTimeout(() => {
+      alertBox.style.display = "none";
+    }, 6000);
+  }
 }
 
 export function simulateProcessing(button, originalText) {
