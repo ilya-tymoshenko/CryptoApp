@@ -10,6 +10,9 @@ import (
 	"io"
 	"os"
 
+	goRuntime "runtime"
+	"runtime/debug"
+
 	"github.com/wailsapp/wails/v2/pkg/runtime"
 )
 
@@ -148,6 +151,10 @@ func (a *App) EncryptFile(inputPath string, outputPath string, keyHex string) (s
 
 	successMessage := fmt.Sprintf("File '%s' successfully encrypted and saved as '%s'", inputPath, outputPath)
 	runtime.LogInfo(a.ctx, successMessage)
+	plaintext = nil
+	ciphertext = nil
+	goRuntime.GC()
+	debug.FreeOSMemory()
 	return successMessage, nil
 }
 
@@ -219,5 +226,9 @@ func (a *App) DecryptFile(inputPath string, outputPath string, keyHex string) (s
 
 	successMessage := fmt.Sprintf("File '%s' successfully decrypted and saved as '%s'", inputPath, outputPath)
 	runtime.LogInfo(a.ctx, successMessage)
+	encryptedData = nil
+	plaintext = nil
+	goRuntime.GC()
+	debug.FreeOSMemory()
 	return successMessage, nil
 }
