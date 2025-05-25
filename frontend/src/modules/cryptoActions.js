@@ -65,7 +65,6 @@ export function setupCryptoActions(updateButtons) {
     }
     try {
       if (window.go?.main?.App?.SelectSaveFile) {
-        simulateProcessing(encryptBtn, "Encrypt");
         const outputPath = await window.go.main.App.SelectSaveFile(
           "Save Encrypted File",
           "encrypted-" + selectedFilePath.split(/[\\/]/).pop()
@@ -75,6 +74,7 @@ export function setupCryptoActions(updateButtons) {
           showAlert("Encryption cancelled: No output file selected", "error");
           return;
         }
+        simulateProcessing(encryptBtn, "Encrypt");
         await window.go.main.App.EncryptFile(
           selectedFilePath,
           outputPath,
@@ -108,7 +108,6 @@ export function setupCryptoActions(updateButtons) {
     }
     try {
       if (window.go?.main?.App?.SelectSaveFile) {
-        simulateProcessing(decryptBtn, "Decrypt");
         const outputPath = await window.go.main.App.SelectSaveFile(
           "Save Decrypted File",
           selectedFilePath.split(/[\\/]/).pop().replace("encrypted-", "")
@@ -118,6 +117,7 @@ export function setupCryptoActions(updateButtons) {
           showAlert("Decryption cancelled: No output file selected", "error");
           return;
         }
+        simulateProcessing(decryptBtn, "Decrypt");
         await window.go.main.App.DecryptFile(
           selectedFilePath,
           outputPath,
