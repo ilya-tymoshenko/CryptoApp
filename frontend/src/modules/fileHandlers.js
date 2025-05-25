@@ -1,4 +1,4 @@
-import { showAlert } from "./uiHelpers.js";
+import { showAlert } from "/src/modules/uiHelpers.js";
 
 const browseBtn = document.getElementById("browseBtn");
 const fileInput = document.getElementById("fileInput");

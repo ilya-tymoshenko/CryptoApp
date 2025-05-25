@@ -1,5 +1,9 @@
-import { selectedFilePath } from "./fileHandlers.js";
-import { showAlert, simulateProcessing, resetProcessing } from "./uiHelpers.js";
+import { selectedFilePath } from "/src/modules/fileHandlers.js";
+import {
+  showAlert,
+  simulateProcessing,
+  resetProcessing,
+} from "/src/modules/uiHelpers.js";
 
 const keyInput = document.getElementById("keyInput");
 const encryptBtn = document.getElementById("encryptBtn");

@@ -1,14 +1,14 @@
 import {
   setupFileHandlers,
   clearSelectedFile,
-} from "./modules/fileHandlers.js";
-import { setupCryptoActions } from "./modules/cryptoActions.js";
+} from "/src/modules/fileHandlers.js";
+import { setupCryptoActions } from "/src/modules/cryptoActions.js";
 
 const encryptBtn = document.getElementById("encryptBtn");
 const decryptBtn = document.getElementById("decryptBtn");
 
 function updateButtons() {
-  import("./modules/fileHandlers.js").then(({ selectedFilePath }) => {
+  import("/src/modules/fileHandlers.js").then(({ selectedFilePath }) => {
     if (selectedFilePath) {
       encryptBtn.classList.remove("disabled");
       decryptBtn.classList.remove("disabled");
