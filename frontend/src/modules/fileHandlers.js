@@ -28,7 +28,6 @@ export function setupFileHandlers(updateButtons) {
           updateButtons();
         }
       } else {
-        // Fallback: trigger file input for browser environments
         fileInput.click();
       }
     } catch (err) {

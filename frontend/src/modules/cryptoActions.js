@@ -8,7 +8,6 @@ const generateKeyBtn = document.getElementById("generateKeyBtn");
 const copyKeyBtn = document.getElementById("copyKeyBtn");
 
 function isValidHexKey(key) {
-  // Example: 32 bytes (64 hex chars) for AES-256
   return /^[0-9a-fA-F]{64}$/.test(key);
 }
 
@@ -23,11 +22,7 @@ export function setupCryptoActions(updateButtons) {
       if (window.go?.main?.App?.GenerateEncryptionKey) {
         const hexKey = await window.go.main.App.GenerateEncryptionKey();
         keyInput.value = hexKey;
-        await navigator.clipboard.writeText(hexKey);
-        showAlert(
-          "Encryption key generated and copied to clipboard!",
-          "success"
-        );
+        showAlert("Encryption key generated!", "success");
       } else {
         showAlert(
           "Backend function GenerateEncryptionKey not available.",
