@@ -65,9 +65,86 @@ h1 {
   padding: var(--spacing-large);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   margin-bottom: var(--spacing-large);
+
+  display: grid;
+  grid-template-areas:
+    "filelabel filelabel"
+    "filerow filerow"
+    "form form"
+    "buttons buttons";
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: min-content;
+  gap: var(--spacing-medium);
 }
 
-/* File Row */
+.card > label[for="fileInput"] {
+  grid-area: filelabel;
+  margin-bottom: 0.5em;
+  display: block;
+}
+
+.file-row {
+  grid-area: filerow;
+  display: grid;
+  grid-template-columns: 1.6fr 0.5fr;
+  gap: var(--spacing-medium);
+  width: 100%;
+  align-items: stretch;
+  margin-bottom: 0;
+}
+
+.file-info {
+  display: grid;
+  align-items: center;
+  /* Single column grid for content alignment */
+  grid-template-columns: 1fr;
+  padding: var(--spacing-small);
+  border-radius: 6px;
+  padding: 10px 16px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.file-info p {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-small);
+  width: 100%;
+}
+
+.file-browse {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-medium);
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.form-group {
+  grid-area: form;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-small);
+  margin-bottom: 0;
+}
+
+.buttons {
+  grid-area: buttons;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-medium);
+  margin-top: 0;
+}
+
+#alertBox {
+  grid-area: alert;
+}
+
+/* Remove margin from .file-info and .form-group since grid handles spacing */
 .file-info {
   padding: var(--spacing-small);
   border-radius: 6px;
@@ -86,15 +163,6 @@ h1 {
   width: 100%;
 }
 
-.file-row {
-  display: grid;
-  grid-template-columns: 1.6fr 0.5fr;
-  gap: var(--spacing-medium);
-  margin-bottom: var(--spacing-medium);
-  width: 100%;
-  align-items: stretch;
-}
-
 .file-browse {
   flex: 1 1 0;
   display: flex;
@@ -105,7 +173,6 @@ h1 {
 
 #browseBtn {
   min-width: 100px;
-
   border-radius: 6px;
   border: 1px solid #555;
   background-color: rgba(98, 160, 234, 0.2);
@@ -114,10 +181,6 @@ h1 {
 }
 
 /* Form Elements */
-.form-group {
-  margin-bottom: var(--spacing-medium);
-}
-
 label {
   display: block;
   margin-bottom: var(--spacing-small);
@@ -149,10 +212,10 @@ input[type="file"] {
 }
 
 .key-input-group {
-  display: flex;
-  flex-direction: row;
-  gap: var(--spacing-small);
-  align-items: center;
+  display: unset;
+  grid-template-columns: unset;
+  gap: unset;
+  align-items: unset;
 }
 
 .expanded-key-input {
@@ -175,8 +238,8 @@ input[type="file"] {
 }
 
 .key-action-subrow {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: var(--spacing-medium);
   min-width: 49%;
 }
@@ -246,7 +309,6 @@ input[type="file"] {
 .buttons {
   display: flex;
   gap: var(--spacing-medium);
-  margin-top: var(--spacing-large);
 }
 
 button {
@@ -258,6 +320,10 @@ button {
   font-weight: 500;
   flex: 1;
   transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .primary-btn {
@@ -321,7 +387,8 @@ footer {
   border-radius: 50%;
   border-top-color: #fff;
   animation: spin 1s linear infinite;
-  margin-right: 8px;
+  margin: 0;
+  vertical-align: middle;
 }
 
 @keyframes spin {
@@ -330,67 +397,44 @@ footer {
   }
 }
 
+/* Remove progress bar styles */
+.progress-bar-container,
+.progress-bar {
+  display: none !important;
+}
+
 /* Responsive */
 @media (max-width: 720px) {
-  .container {
-    padding: var(--spacing-small);
-  }
-
   .card {
-    padding: var(--spacing-medium);
-  }
-
-  .drop-area {
-    padding: var(--spacing-medium);
-    height: 10rem;
-    font-size: 0.95rem;
-  }
-
-  .key-input-group,
-  .key-action-row,
-  .key-action-subrow,
-  .buttons {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "filelabel"
+      "filerow"
+      "form"
+      "buttons"
+      "alert";
     gap: var(--spacing-small);
-  }
-
-  .key-action-row,
-  .buttons {
-    margin-top: var(--spacing-medium);
-  }
-
-  .key-action-row button,
-  .key-action-subrow button,
-  .buttons button {
-    min-width: 0;
-    width: 100%;
-    flex: 1 1 100%;
-  }
-
-  .key-action-subrow {
-    width: 100%;
-  }
-
-  .form-group {
-    margin-bottom: var(--spacing-small);
-  }
-
-  .file-info {
-    font-size: 0.95rem;
-  }
-
-  .expanded-key-input {
-    font-size: 1rem;
-    padding: 10px;
-  }
-
-  .key-warning {
-    font-size: 0.95rem;
+    padding: var(--spacing-medium);
   }
 
   .file-row {
     grid-template-columns: 1fr;
     gap: var(--spacing-small);
+  }
+
+  .buttons {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-small);
+  }
+
+  .file-info,
+  .file-info p,
+  .file-browse,
+  .form-group,
+  .key-input-group,
+  .key-action-row,
+  .key-action-subrow {
+    grid-template-columns: 1fr !important;
   }
 
   .file-browse {
